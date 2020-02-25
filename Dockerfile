@@ -19,10 +19,10 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 # ------------------------------------------------------
 # --- Install Gradle
 
-RUN wget https://downloads.gradle.org/distributions/gradle-4.4-bin.zip
+RUN wget https://downloads.gradle.org/distributions/gradle-5.4.1-bin.zip
 RUN mkdir /opt/gradle
-RUN unzip -d /opt/gradle gradle-4.4-bin.zip
-ENV GRADLE_HOME /opt/gradle/gradle-4.4
+RUN unzip -d /opt/gradle gradle-5.4.1-bin.zip
+ENV GRADLE_HOME /opt/gradle/gradle-5.4.1
 ENV PATH ${PATH}:${GRADLE_HOME}/bin
 
 # ------------------------------------------------------
@@ -41,7 +41,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_
 
 # --- install platform-25 and build-tools-25.0.0
 RUN yes | sdkmanager --verbose --licenses
-RUN echo "y" | sdkmanager --verbose "patcher;v4" "tools" "platforms;android-26" "platforms;android-25" "platforms;android-26" "platforms;android-27" "build-tools;25.0.0" "build-tools;26.0.1" "build-tools;27.0.3" "extras;android;m2repository" "extras;google;google_play_services" "extras;google;m2repository" "extras;google;market_apk_expansion" "extras;google;market_licensing" "extras;google;webdriver" "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha7" "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+RUN echo "y" | sdkmanager --verbose "patcher;v4" "tools" "platforms;android-26" "platforms;android-25" "platforms;android-26" "platforms;android-27" "platforms;android-28" "platforms;android-29" "build-tools;25.0.0" "build-tools;26.0.1" "build-tools;27.0.3" "build-tools;29.0.2" "extras;android;m2repository" "extras;google;google_play_services" "extras;google;m2repository" "extras;google;market_apk_expansion" "extras;google;market_licensing" "extras;google;webdriver" "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha7" "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
 
 # ------------------------------------------------------
 # --- Install NodeJS
@@ -51,6 +51,6 @@ RUN apt-get install -y nodejs build-essential
 
 # ------------------------------------------------------
 # --- Clean up
-RUN rm gradle-4.4-bin.zip
+RUN rm gradle-5.4.1-bin.zip
 RUN rm sdk-tools-linux-3859397.zip
 RUN apt-get clean
