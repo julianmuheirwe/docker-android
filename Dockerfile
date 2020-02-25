@@ -49,6 +49,7 @@ RUN echo "y" | sdkmanager --verbose "patcher;v4" "tools" "platforms;android-26" 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs build-essential
 
+
 # ------------------------------------------------------
 # --- Clean up
 RUN rm gradle-5.4.1-bin.zip
